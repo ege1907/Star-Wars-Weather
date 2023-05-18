@@ -1,6 +1,5 @@
 import React from "react"
 import WeatherCard from "./WeatherCard"
-import ForecastCard from "./ForecastCard"
 import Homescreen from "./Homescreen"
 
 export default function App() {
@@ -41,7 +40,7 @@ export default function App() {
     fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${userInput.cityName}&units=${units}&appid=287e38af65aa76e627c9552d45c48593`).then(response => response.json()).then(data => setWeatherQuery(prevState => {
         return{...prevState, forecast: data}
       }))
-  },[userInput.isCelsius])
+  },[userInput.isCelsius, units, userInput.cityName])
   
   function handleSubmit(e) {
     e.preventDefault();
@@ -77,7 +76,7 @@ export default function App() {
     return (
       <div className="forecast-card">
         <p>{hour}</p>
-        <img src={"./images/"+description+".png"}></img>
+        <img alt="bruh" src={"./images/"+description+".png"}></img>
         <h2>{Math.floor(item.main.temp)+tempUnit}</h2>
         <h2>{item.weather[0].description}</h2>
       </div>

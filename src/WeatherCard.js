@@ -18,7 +18,7 @@ export default function WeatherCard(props) {
         <div className="weather-container" style={myStyle} >
             <div className="weather-display-container">
                 <h1>{props.cityName.toUpperCase()}</h1>
-                <img src={"./images/"+main+".png"}></img>
+                <img alt="bruh" src={"./images/"+main+".png"}></img>
                     <h1>{Math.floor(props.temperature) + tempUnit}</h1>
                 <p>{props.description} </p>
                 <div className="data-container">
